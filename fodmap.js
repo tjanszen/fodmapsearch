@@ -4,6 +4,7 @@ var highFodmap = ["garlic", "onions", "artichoke", "asparagus", "baked beans", "
 
 function getWord() {
   var inputValue = document.getElementById('fodmap').value;
+  clearMsg();
   checkLows(inputValue);
 }
 
@@ -11,7 +12,8 @@ function checkLows(fodmap){
 
   for(var i = 0; i < lowFodmap.length; i++){
     if(lowFodmap[i] === fodmap){
-      alert("Looks like you can eat " + fodmap + "!. Life is good :)");
+      addLowMessage(fodmap);
+      // alert("Looks like you can eat " + fodmap + "!. Life is good :)");
       return;
     }
   }
@@ -22,7 +24,7 @@ function checkLows(fodmap){
 function checkHighs(fodmap){
   for(var i = 0; i < highFodmap.length; i++){
     if(highFodmap[i] === fodmap){
-      alert("Sorry, you cannot eat " + fodmap + ":( . But soon we will be able to provide substitute recommendations!");
+      addHighMessage(fodmap);
       return;
     }
   }
@@ -30,5 +32,28 @@ function checkHighs(fodmap){
 }
 
 function alertMsg(){
-  alert("We currently do not have this food item added to our list. We will research this food item and get it added soon!");
+  var displayH1 = document.getElementById('search-answer');
+  displayH1.className = displayH1.className + " search-mia";
+  displayH1.innerHTML = "Not is our database but we will get it added!"
+}
+
+function addLowMessage(fodmap){
+  var displayH1 = document.getElementById('search-answer');
+  displayH1.className = displayH1.className + " search-low";
+  displayH1.innerHTML = "low FODMAP :)"
+}
+
+function addHighMessage(fodmap){
+  var displayH1 = document.getElementById('search-answer');
+  displayH1.className = displayH1.className + " search-high";
+  displayH1.innerHTML = "high FODMAP :("
+}
+
+function clearMsg(){
+  var input = document.getElementById('fodmap')
+  input.value = "";
+
+  var answer = document.getElementById('search-answer');
+  answer.value = "";
+  answer.className = "cover-heading"
 }
