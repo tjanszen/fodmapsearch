@@ -9,3 +9,25 @@
 .search-mia{
   color:#e9ec62;
 }
+
+.source{
+  color:#696969;
+}
+
+#faq-btn{
+  border-radius: 50%;
+}
+
+#results-div{
+  visibility: hidden;
+  text-shadow:none;
+}
+
+.cover{
+  margin-top:1em;
+}
+
+.faq-copy{
+  color: black;
+  text-shadow: none;
+}

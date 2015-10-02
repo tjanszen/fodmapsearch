@@ -1,19 +1,511 @@
-var lowFodmap = ["alfafa", "bamboo shoots", "bean sprouts", "bok choy", "broccoli", "brussel sprouts", "butternut squash", "cabbage", "callaloo", "carrots"];
-var highFodmap = ["garlic", "onions", "artichoke", "asparagus", "baked beans", "beetroot", "black beans", "black eyed beans", "broad beans", "butter beans", "cassava", "cauliflower", "celery"];
+var highFodmap = [
+["garlic", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["onions", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["onion", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["artichoke", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["artichokes", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["asparagus", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["baked beans", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["beetroot", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["black beans", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["black eyed peas", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["broad beans", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["butter beans", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["cassava", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["cauliflower", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["celery", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["cho cho", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["choko", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["falafel", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["haricot beans", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["kidney beans", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["lima beans", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["leek bulb", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["mango tout", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["mushrooms", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["mushroom", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["peas", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["snow peas", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["sugar snap peas", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["red kidney beans", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["savoy cabbage", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["soy beans", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["soya beans", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["split peas", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["scallions", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["shallots", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["taro", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["apples", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["apricots", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["avocado", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["blackberries", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["boysenberry", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["cherries", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["currants", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["custard apple", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["dates", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["feijoa", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["figs", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["goji berries", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["grapefruit", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["lychee", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["mango", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["nectarines", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["paw paw", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "dried"],
+["peaches", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["pears", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["persimmon", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["pineapple", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["plums", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "dried"],
+["pomegranate", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["prunes", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["raisins", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["sultanas", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["tamarillo", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["watermelon", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["chorizo", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["sausages", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["processed meat", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["wheat", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["gluten", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["breadcrumbs", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "containing gluten"],
+["cakes", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "containing gluten"],
+["cereal bar", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "containing gluten"],
+["cereal bars", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "containing gluten"],
+["croissants", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "containing gluten"],
+["crumpets", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "containing gluten"],
+["egg noodles", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "containing gluten"],
+["muffins", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "containing gluten"],
+["pastries", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "containing gluten"],
+["pasta", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "containing gluten"],
+["bran", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "containing wheat"],
+["cereal", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "containing wheat"],
+["noodles", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "containing wheat"],
+["rolls", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "containing wheat"],
+["wheatgerm", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "containing wheat"],
+["almond meal", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["amaranth flour", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["barley", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "including flour"],
+["bran cereals", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["bread", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "multigrain, naan, roti, oatmeal, pumpernickel, sourdough with kamut"],
+["cashews", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["cereal ba", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["cous cous", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["einkorn flour", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["freekeh", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["gnocchi", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["granola bar", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["granola bars", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["muesli bar", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["muesli bars", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["pistachios", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["rye", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["rye crispbread", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["semolina", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["spelt flour", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["agave", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["caviar dip", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["fructose", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["fruit bar", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["fruit bars", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["gravy", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "if it contains onions"],
+["high fructose corn syrup", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["hummus", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["honey", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["jam", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["pesto", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["pesto sauce", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["quince", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["quince pasta", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["relish", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["stock cubes", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["inulin", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["isomalt", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["maltitol", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["mannitol", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["sorbitol", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["xylitol", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["tahini", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "tahini paste"],
+["tahini paste", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["tzatziki dip", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["beer", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "if drinking more than one bottle/can"],
+["coconut water", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["cordial", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "apple and raspberry with 50-100% real juice OR orange with 25%-50% real juice"],
+["dandelion tea", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["tea", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "fruit and herbal teas with apple added, black with added soy milk, chai-strong, dandelion-strong, fennel, chamomile, herbal-strong, oolong"],
+["orange juice", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "in quantities over 100ml"],
+["rum", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["sodas", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "containing high-fructose corn syrup"],
+["soy milk", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "made with soy beans - commonly found in USA"],
+["sports drinks", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["sport drinks", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["wine", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "if drinking more than one glass"],
+["buttermilk", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["cheese", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "cream cheese, ricotta cheese, holmium cheese"],
+["ricotta cheese", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["ricotta", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["halmoumi cheese", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["cream", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["custard", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["gelato", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["ice cream", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["icecream", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["kefir", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["milk", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "cow, goat, sheep, evaporated, rice"],
+["sour cream", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["yoghurt", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "including greek rogurt"],
+["carob powder", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"]
+];
+
+var lowFodmap = [
+["alfalfa", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["bamboo shoots", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["bean sprouts", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["bok choy", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["pak choi", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["broccoli", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "1/2 cup"],
+["brussel sprouts", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "1 serving of 2 sprouts"],
+["butternut squash", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "1/4 cup"],
+["cabbage", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "common and red"],
+["callaloo", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["carrots", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["carrot", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["celeriac", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["celery", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "less than 5cm of stalk"],
+["chicory leaves", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["chick peas", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["chili", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "if tolerable"],
+["chives", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["choy sum", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["collard greens", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["corn", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "if tolerable and only in small amounts - 1/2 cob"],
+["sweet corn", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "if tolerable and only in small amounts - 1/2 cob"],
+["courgette", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["cucumber", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["eggplant", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["aubergine", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["fennel", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["green beans", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["greenbeans", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["green pepper", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["green bell pepper", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["green capsicum", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["ginger", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["kale", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["leek leaves", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["lentils", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "in small amounts"],
+["lettuce", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "butter, iceberg, radicchio red coral, rocket"],
+["marrow", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["okra", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["olives", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["parsnip", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["potato", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["pumpkin", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "1/4 cup or 2.2oz of canned"],
+["canned pumpkin", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "1/4 cup or 2.2oz of canned"],
+["radish", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["red pepper", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["red bell pepper", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["red capsicum", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["pepper", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "red pepper, red bell pepper, red capsicum, green pepper, green bell pepper, green capsicum"],
+["peppers", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "red pepper, red bell pepper, red capsicum, green pepper, green bell pepper, green capsicum"],
+["scallions", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "green part"],
+["spring onions", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "green part"],
+["spring onion", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "green part"],
+["seaweed", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["nori", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["silverbeet", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["chard", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["squash", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["spaghetti squash", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["spinach", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "baby"],
+["sun dried tomatoes", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "4 pieces"],
+["sun-dried tomatoes", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "4 pieces"],
+["sun dried tomato", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "4 pieces"],
+["sun dried tomato", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "4 pieces"],
+["swede", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["swiss chard", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["sweet potato", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "1/2 cup"],
+["tomato", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "canned, cherry, common, roma"],
+["roma tomato", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["cherry tomato", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["common tomato", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["canned tomato", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["turnip", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["water chestnuts", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["water chestnut", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["yams", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["yam", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["zucchini", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["ackee", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["bananas", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["blueberries", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["breadfruit", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["carambola", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["cantaloupe", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["cranberry", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["clementine", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["dragon fruit", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["grapes", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["honeydew", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["galia melons", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["kiwifruit", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["kiwi", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["lemon", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "including lemon juice"],
+["lime", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"], "including lime juice",
+["mandarin", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["orange", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["passion fruit", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["paw paw", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["papaya", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["pineapple", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["raspberry", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["rhubarb", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["strawberry", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["tamarind", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["tangelo", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["beef", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["chicken", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["kangaroo", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["lamb", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["pork", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["prosciutto", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["quorn mince", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["turkey", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["cold cuts", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "cold meats such as ham and turkey breast"],
+["deli meat", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["tuna", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "canned"],
+["canned tuna", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["cod", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["haddock", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["plaice", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["salmon", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["trout", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["crab", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["lobster", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["mussels", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["oysters", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["prawns", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["shrimp", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["almonds", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "max of 15"],
+["brazil nuts", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["bran", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["oat", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["rice", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["bulgur", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "1/4 cup cooked, 44g serving"],
+["bourghal", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "1/4 cup cooked, 44g serving"],
+["buckwheat", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["buckwheat flour", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["buckwheat noodles", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["brown rice", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["whole grain rice", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["chestnuts", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["chips", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "plain / potato chips, plain"],
+["cornflour", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["maize", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["crispbread", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["cornflakes", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "1/2 cup"],
+["coconut", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "milk, cream, flesh"],
+["tortillas", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "corn tortillas - 3 max"],
+["corn tortillas", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "3 - max"],
+["hazelnuts", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "max of 15"],
+["macadamia nuts", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["millet", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["oatmeal", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "1/2 cup"],
+["oats", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["oatcakes", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["peanuts", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["pecans", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", " max of 15"],
+["pine nuts", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "max of 15"],
+["polenta", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["popcorn", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "plain"],
+["porridge", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "and oat based cereals"],
+["potato flour", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["pretzels", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["quinoa", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["rice", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "basmati, brown, white, bran, flakes, crackers, cakes, flour, Rice Krispies, noodles"],
+["basmati rice", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["brown rice", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["white rice", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["bran rice", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["rice flakes", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["rice cakes", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["rice crackers", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["rice krispies", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["seeds", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "chia, egusi, poppy, pumpkin, sesame, sunflower"],
+["chia seeds", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["egusi seeds", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["poppy seeds", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["sesame seeds", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["pumpkin seeds", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["sunflower seeds", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["starch", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["maize", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["potato", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["tapioca", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["sorghum", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["tortilla chips", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["corn chips", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["walnuts", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["aspartame", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["acesulfame K", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["acesulfame k", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["barbecue sauce", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["capers", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "caper in vinegar are ok and capers salted"],
+["chocolate", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "dark chocolate is ok, milk chocolate and white chocolate are ok with 3 squares"],
+["chutney", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "1 tablespoon"],
+["fish sauce", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["garilic infused oil", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["golden syrup", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["glucose", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["jam", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "strawberry is ok"],
+["jelly", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "strawberry is ok"],
+["ketchup", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "USA ketchup - 1 sachet"],
+["maple syrup", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["marmalade", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["mayonnaise", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "ensure no garlic or onion in ingredients"],
+["miso paste", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["mustard", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "make sure it is gluten free"],
+["oyster sauce", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["pesto sauce", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "less than 1 tbsp"],
+["peanut butter", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["rice malt syrup", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["saccharine", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["shrimp pasta", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["soy sauce", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["stevia", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["sweet and sour sauce", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["sucralose", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["sugar", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["sucrose", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["tamarind paste", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["tomato sauce", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "make sure it does not include garlic or onion"],
+["vegemite", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["vinegar", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "balsamic and rice wine"],
+["wasabi", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["worcestershire sauce", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["alcohol", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "is an irritant to the gut, limited intake advised"],
+["beer", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "limited to one drink"],
+["vodka", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "limited to one drink"],
+["gin", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "limited to one drink"],
+["whiskey", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "limited to one drink"],
+["wine", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "limited to one drink"],
+["coffee", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "regular, instant, or decaffeinated, black - with up to 250ml lactose free milk"],
+["espresso", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "regular, instant or decaffeinated, black - with up to 250ml lactose free milk"],
+["fruit juice", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "125ml and safe fruits only"],
+["lemonade", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "in low quantities"],
+["malted chocolate powder", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "e.g. Milo, Horlicks – 3 tsp"],
+["protein supplement", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["soya milk", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "made with soy protein"],
+["tea", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "black (weak e.g. PG Tips), chai (weak), fruit and herbal (weak and ensure no apple is added), green, peppermint, white"],
+["butter", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["cheese", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "brie, camembert, cheddar, cottage, feta, goat/chevre, mozzarella, ricotta - 2 tablespoons, swiss"],
+["brie cheese", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["camembert cheese", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["cheddar cheese", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["cottage cheese", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["feta cheese", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["goat cheese", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["chevre cheese", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["mozzarella cheese", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["brie", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "(cheese)"],
+["camembert", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "(cheese)"],
+["cheddar", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "(cheese)"],
+["cottage", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/","(cheese)"],
+["feta", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "(cheese)"],
+["goat", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "(cheese)"],
+["chevre", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "(cheese)"],
+["mozzarella", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "(cheese)"],
+["swiss cheese", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["swiss", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "(cheese)"],
+["pudding", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "dairy free chocolate pudding"],
+["eggs", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["margarine", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["milk", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "almond, hemp, lactose free, oat - 30ml (enough for cereal), rice"],
+["almond milk", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["hemp milk", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["lactose free milk", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["oat milk", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "30 ml, enough for cereal"],
+["parmesan cheese", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["parmesan", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "cheese"],
+["rice milk", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["sorbet", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["soy protein", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "avoid soya beans"],
+["tempeh", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["tofu", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["whipped cream", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["yogurt", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "lactose free"],
+["basil", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["cilantro", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["coriander", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["curry leaves", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["fenugreek", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["gotukala", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["lemongrass", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["mint", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["oregano", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["pandan", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["parsley", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["rampa", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["rosemary", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["tarragon", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["thyme", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["all spice", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["black pepper", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["cardamon", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["chilli powder", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["cinnamon", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["cloves", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["cumin", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["curry powder", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["fennel seeds", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["five spice", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["goraka", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["mustard seeds", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["nutmeg", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["paprika", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["saffron", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["star anise", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["tumeric", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["oil", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "avocado oil, canola oil, coconut oil, olive oil, peanut oil, rice bran oil, sesame oil, sunflower oil, vegetable oil"],
+["avocado oil", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["canola oil", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["coconut oil", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["olive oil", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["peanut oil", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["rice bran oil", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["sesame oil", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["sunflower oil", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["vegetable oil", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["asafoetida powder", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "great onion substitute"],
+["baking powder", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["cocao powder", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["cacao powder", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["cream", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "1/2 cup"],
+["gelatine", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["ghee", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["icing sugar", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["lard", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["salt", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"]
+];
+
+
 
 
 function getWord() {
-  var inputValue = document.getElementById('fodmap').value;
+  //get the value from input and make it lowercase
+  var inputValue = document.getElementById('fodmap').value.toLowerCase();
+  //clear the input search element
   clearMsg();
+  //check to see if it is a low fodmap
   checkLows(inputValue);
 }
 
 function checkLows(fodmap){
 
   for(var i = 0; i < lowFodmap.length; i++){
-    if(lowFodmap[i] === fodmap){
-      addLowMessage(fodmap);
-      // alert("Looks like you can eat " + fodmap + "!. Life is good :)");
+    if(lowFodmap[i][0] === fodmap){
+      addLowMessage(lowFodmap[i][0], lowFodmap[i][1], lowFodmap[i][2]);
+
       return;
     }
   }
@@ -23,37 +515,67 @@ function checkLows(fodmap){
 
 function checkHighs(fodmap){
   for(var i = 0; i < highFodmap.length; i++){
-    if(highFodmap[i] === fodmap){
-      addHighMessage(fodmap);
+    if(highFodmap[i][0] === fodmap){
+      addHighMessage(highFodmap[i][0], highFodmap[i][1], highFodmap[i][2]);
       return;
     }
   }
-  alertMsg();
+  alertMsg(fodmap);
 }
 
-function alertMsg(){
-  var displayH1 = document.getElementById('search-answer');
-  displayH1.className = displayH1.className + " search-mia";
-  displayH1.innerHTML = "Not is our database but we will get it added!"
+function alertMsg(fodmap){
+  var resultsDiv = document.getElementById('results-div');
+  var fodmapType = document.getElementById('fodmap-type');
+  var fodmapName = document.getElementById('fodmap-name');
+  var fodmapNotes = document.getElementById('fodmap-notes');
+  fodmapType.innerHTML = "Uh Oh...";
+  fodmapName.innerHTML = fodmap;
+  fodmapNotes.innerHTML = "This item is not in our database but we will get it added now that you want to know!";
+  resultsDiv.className = "alert alert-warning text-left";
+  resultsDiv.style.visibility = "visible"
 }
 
-function addLowMessage(fodmap){
-  var displayH1 = document.getElementById('search-answer');
-  displayH1.className = displayH1.className + " search-low";
-  displayH1.innerHTML = "low FODMAP :)"
+function addLowMessage(fodmap, url, notes){
+  var resultsDiv = document.getElementById('results-div');
+  var fodmapType = document.getElementById('fodmap-type');
+  var fodmapName = document.getElementById('fodmap-name');
+  var fodmapNotes = document.getElementById('fodmap-notes');
+  var sourceAnchor = document.getElementById('source');
+  fodmapType.innerHTML = "LOW FODMAP";
+  fodmapName.innerHTML = fodmap;
+  if(notes === undefined){
+    fodmapNotes.innerHTML = "";
+  }
+  else{
+    fodmapNotes.innerHTML = "Notes: " + notes;
+  }
+  resultsDiv.className = "alert alert-success text-left";
+  resultsDiv.style.visibility = "visible"
 }
 
-function addHighMessage(fodmap){
-  var displayH1 = document.getElementById('search-answer');
-  displayH1.className = displayH1.className + " search-high";
-  displayH1.innerHTML = "high FODMAP :("
+function addHighMessage(fodmap, url, notes){
+  var resultsDiv = document.getElementById('results-div');
+  var fodmapType = document.getElementById('fodmap-type');
+  var fodmapName = document.getElementById('fodmap-name');
+  var fodmapNotes = document.getElementById('fodmap-notes');
+  var sourceAnchor = document.getElementById('source');
+  fodmapType.innerHTML = "HIGH FODMAP";
+  fodmapName.innerHTML = fodmap;
+  if(notes === undefined){
+    fodmapNotes.innerHTML = "";
+  }
+  else{
+    fodmapNotes.innerHTML = "Notes: " + notes;
+  }
+  resultsDiv.className = "alert alert-danger text-left";
+  resultsDiv.style.visibility = "visible"
 }
 
 function clearMsg(){
   var input = document.getElementById('fodmap')
   input.value = "";
 
-  var answer = document.getElementById('search-answer');
-  answer.value = "";
-  answer.className = "cover-heading"
+  // var answer = document.getElementById('search-answer');
+  // answer.value = "";
+  // answer.className = "cover-heading"
 }
