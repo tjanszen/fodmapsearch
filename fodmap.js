@@ -498,14 +498,8 @@ var lowFodmap = [
 function getWord() {
   //get the value from input and make it lowercase
   var inputValue = document.getElementById('fodmap').value.toLowerCase();
-  // var firebase = new Firebase("https://fodmap.firebaseio.com/");
-  // var today = new Date();
-  // firebase.push({'search': inputValue, 'search': inputValue});
 
-  var firebaseRef = new Firebase('https://fodmap.firebaseio.com/searches');
-  var today = new Date();
-  var newMessageRef = firebaseRef.push();
-    newMessageRef.set({ 'search': inputValue + " on " + today});
+  storeWord(inputValue);
   //clear the input search element
   clearMsg();
   //check to see if it is a low fodmap
@@ -584,6 +578,17 @@ function addHighMessage(fodmap, url, notes){
   resultsDiv.className = "alert alert-danger text-left";
   resultsDiv.style.visibility = "visible"
 }
+
+function storeWord(word){
+  var ref = new Firebase('https://fodmap.firebaseio.com/searches');
+  var searchRef = ref.push();
+  var date = new Date().toString();
+  searchRef.set({
+    "search": word,
+    "date": date
+    });
+}
+
 
 function clearMsg(){
   var input = document.getElementById('fodmap')
