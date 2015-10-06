@@ -204,7 +204,11 @@ var lowFodmap = [
 ["canned pumpkin", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "1/4 cup or 2.2oz of canned"],
 ["radish", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
 ["red pepper", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["red peppers", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["bell pepper", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["bell peppers", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
 ["red bell pepper", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
+["red bell peppers", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
 ["red capsicum", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/"],
 ["pepper", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "red pepper, red bell pepper, red capsicum, green pepper, green bell pepper, green capsicum"],
 ["peppers", "http://www.ibsdiets.org/fodmap-diet/fodmap-food-list/", "red pepper, red bell pepper, red capsicum, green pepper, green bell pepper, green capsicum"],
@@ -494,6 +498,14 @@ var lowFodmap = [
 function getWord() {
   //get the value from input and make it lowercase
   var inputValue = document.getElementById('fodmap').value.toLowerCase();
+  // var firebase = new Firebase("https://fodmap.firebaseio.com/");
+  // var today = new Date();
+  // firebase.push({'search': inputValue, 'search': inputValue});
+
+  var firebaseRef = new Firebase('https://fodmap.firebaseio.com/searches');
+  var today = new Date();
+  var newMessageRef = firebaseRef.push();
+    newMessageRef.set({ 'search': inputValue + " on " + today});
   //clear the input search element
   clearMsg();
   //check to see if it is a low fodmap
@@ -549,6 +561,7 @@ function addLowMessage(fodmap, url, notes){
   else{
     fodmapNotes.innerHTML = "Notes: " + notes;
   }
+  sourceAnchor.href = url;
   resultsDiv.className = "alert alert-success text-left";
   resultsDiv.style.visibility = "visible"
 }
@@ -567,6 +580,7 @@ function addHighMessage(fodmap, url, notes){
   else{
     fodmapNotes.innerHTML = "Notes: " + notes;
   }
+  sourceAnchor.href = url;
   resultsDiv.className = "alert alert-danger text-left";
   resultsDiv.style.visibility = "visible"
 }

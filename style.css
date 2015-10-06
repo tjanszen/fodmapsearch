@@ -31,3 +31,12 @@
   color: black;
   text-shadow: none;
 }
+
+#source{
+  float: right;
+  color: grey;
+}
+
+.gh-link{
+  color: #999;
+}
